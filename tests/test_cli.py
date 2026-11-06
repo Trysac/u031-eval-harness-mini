@@ -73,7 +73,9 @@ def test_contains_scorer(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> 
     assert "contains mean=1.0000 threshold=1.0000 PASS" in out
 
 
-def test_target_errors_count_as_failures(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+def test_target_errors_count_as_failures(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
     path = write_dataset(tmp_path / "ints.jsonl", [("a", "1", 1), ("b", "zz", 1)])
     code, out, _err = run_cli(capsys, argv(path, "exact=0.9", target="builtins:int"))
     assert code == 1
@@ -124,7 +126,9 @@ def test_missing_dataset_exits_2(tmp_path: Path, capsys: pytest.CaptureFixture[s
     assert "dataset_invalid" in err
 
 
-def test_invalid_dataset_line_is_reported(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:
+def test_invalid_dataset_line_is_reported(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
     path = tmp_path / "bad.jsonl"
     path.write_text('{"id": "a", "input": 1, "expected": 1}\n{bad\n', encoding="utf-8")
     code, _out, err = run_cli(capsys, argv(path, "exact=0.5"))

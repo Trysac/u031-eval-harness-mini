@@ -21,7 +21,9 @@ def validate_thresholds(names: Iterable[str], thresholds: Mapping[str, float]) -
             raise EvalError("threshold_invalid", message)
 
 
-def _outcomes(result: EvalResult, thresholds: Mapping[str, float]) -> list[tuple[str, float, float]]:
+def _outcomes(
+    result: EvalResult, thresholds: Mapping[str, float]
+) -> list[tuple[str, float, float]]:
     validate_thresholds(result.means, thresholds)
     return [(name, result.means[name], float(value)) for name, value in thresholds.items()]
 
