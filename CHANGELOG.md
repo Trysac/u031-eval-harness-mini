@@ -9,4 +9,5 @@ adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
+- Add eval_harness_mini: golden JSONL dataset loader, built-in scorers, run_eval with stable JSON report, CI thresholds, the `eval-mini run` CLI and an opt-in pytest plugin (`golden_eval` fixture).
 - Initial project structure from the factory utility template.

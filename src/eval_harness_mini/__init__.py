@@ -1,21 +1,30 @@
-"""Minimal evaluation harness: golden JSONL datasets, built-in scorers, CI pass thresholds, a stable JSON report and an opt-in pytest plugin"""
+"""Minimal evaluation harness for golden JSONL datasets with CI pass thresholds."""
 
 from __future__ import annotations
 
-__all__ = ["__version__", "normalize"]
+import logging
+
+from . import scorers
+from .dataset import Case, load_dataset
+from .errors import EvalError
+from .runner import CaseEvent, CaseResult, EvalResult, run_eval
+from .scorers import Scorer
+from .thresholds import check_thresholds
+
+__all__ = [
+    "Case",
+    "CaseEvent",
+    "CaseResult",
+    "EvalError",
+    "EvalResult",
+    "Scorer",
+    "__version__",
+    "check_thresholds",
+    "load_dataset",
+    "run_eval",
+    "scorers",
+]
 
 __version__ = "0.1.0"
 
-
-def normalize(value: str) -> str:
-    """Return ``value`` trimmed and lower-cased.
-
-    Placeholder API created by the template: replace it with the utility's real behavior.
-
-    Raises:
-        ValueError: if ``value`` is empty or only whitespace.
-    """
-    cleaned = value.strip()
-    if not cleaned:
-        raise ValueError("value must not be empty")
-    return cleaned.lower()
+logging.getLogger(__name__).addHandler(logging.NullHandler())
