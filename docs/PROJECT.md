@@ -2,12 +2,12 @@
 
 ## Objective
 
-Minimal evaluation harness: golden JSONL datasets, built-in scorers, CI pass thresholds, a stable JSON report and an opt-in pytest plugin
+Provide a dependency-free regression gate for LLM features: run a target function over a golden JSONL dataset, score each output, and fail CI when a scorer's mean is below its threshold.
 
 ## Scope
 
-- In scope: the public API documented in [README.md](../README.md), typed and tested.
-- Out of scope: anything that needs runtime dependencies or I/O without an accepted ADR.
+- In scope: the public API documented in [README.md](../README.md): strict JSONL loading with size and depth limits, built-in scorers (exact_match, contains, json_field_equals), run_eval, a stable JSON report, check_thresholds, the `eval-mini run` CLI and the opt-in `golden_eval` pytest fixture.
+- Out of scope: LLM-as-judge scoring, dashboards, async runs and dataset versioning. Anything that needs runtime dependencies or I/O without an accepted ADR is also out of scope.
 
 ## Timeline
 
