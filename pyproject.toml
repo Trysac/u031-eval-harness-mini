@@ -19,6 +19,9 @@ classifiers = [
 ]
 dependencies = []
 
+[project.scripts]
+eval-harness-mini = "eval_harness_mini.__main__:main"
+
 [project.urls]
 Homepage = "https://github.com/Trysac/u031-eval-harness-mini"
 Source = "https://github.com/Trysac/u031-eval-harness-mini"
