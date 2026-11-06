@@ -7,7 +7,7 @@ import re
 import pytest
 
 # Enabled with '-p eval_harness_mini.pytest_plugin'.
-PLUGIN ="eval_harness_mini.pytest_plugin"
+PLUGIN = "eval_harness_mini.pytest_plugin"
 
 INNER = """
 import json
