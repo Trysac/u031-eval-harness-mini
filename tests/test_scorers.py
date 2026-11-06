@@ -17,8 +17,7 @@ def nest(depth: int) -> Any:
 
 
 def test_acceptance_examples() -> None:
-    # exact_match('a', 'a') == 1.0, exact_match(1, 1.0) == 1.0, exact_match(True, 1) == 0.0, contains('xay', 'a') == 1.0,
-    # json_field_equals('k')('{"k": [1, 2]}', {'k': [1, 2]}) == 1.0 and json_field_equals('k')('not json', {'k': 1}) == 0.0
+    # Acceptance examples for exact_match, contains and json_field_equals.
     assert exact_match("a", "a") == 1.0
     assert exact_match(1, 1.0) == 1.0
     assert exact_match(True, 1) == 0.0

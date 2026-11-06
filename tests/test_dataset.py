@@ -161,7 +161,7 @@ def test_max_cases_limit(tmp_path: Path) -> None:
 
 
 def test_depth_limit_for_lists(tmp_path: Path) -> None:
-    # An input value '[' * 63 + ']' * 63 loads and '[' * 64 + ']' * 64 raises code 'dataset_invalid'.
+    # Depth 63 nesting loads; depth 64 nesting raises code 'dataset_invalid'.
     # Earlier note: '[' * 63 + ']' * 63 loads; '[' * 64 + ']' * 64 is rejected.
     ok = '{"id": "a", "input": ' + nested(63) + ', "expected": 1}'
     assert len(load_dataset(write(tmp_path, ok))) == 1

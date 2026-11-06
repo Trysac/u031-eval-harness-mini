@@ -46,7 +46,7 @@ def test_mean_of_one_and_half_is_three_quarters() -> None:
 def test_target_error_is_recorded_and_remaining_cases_run() -> None:
     def target(value: Any) -> Any:
         if value == "bad":
-            # A target raising ValueError('x' * 300) on one case records error 'ValueError: ' + 'x' * 200
+            # Long error messages are truncated to 200 characters.
             raise ValueError("x" * 300)
         return value
 
